@@ -18,6 +18,7 @@ body {
     width: 100%;
     transform: translateX(-100%);
     transition: transform 200ms ease;
+    
 }
 .sidenav-open{
     transform: translateX(0);
@@ -30,9 +31,6 @@ body {
 /*    background-color: rgba(0, 0, 0, .6);*/
 }
 
-.fechar {
-    opacity: .6;
-}
 .btnOpen{
     font-size: .75rem;
 }
@@ -78,4 +76,17 @@ body {
     background-color: rgba(0, 0, 0, .3);
     display: none;
 }
-    
+#side-left {
+    position: absolute;
+    bottom: 0;
+    top: 30vh;
+    width: 100%;
+}
+
+#side-left a {
+    color: white;
+    text-transform: uppercase;
+}
+#side-left li:hover{
+    background-color: #222;
+}
