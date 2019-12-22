@@ -10,7 +10,7 @@
 </head>
 <body>
    
-   <nav class="navbar navbar-dark color-white" id="topBar">
+   <nav class="navbar navbar-dark bg-dark color-white" id="topBar">
             
       <button class="navbar-toggler d-md-block d-sm-block d-lg-block btnOpen" type="button"  aria-label="Toggle navigation">
         <span class="navbar-toggler-icon "></span>
@@ -24,7 +24,7 @@
         </form>
       
     </nav>
-    
+    <div class="fundo-preto"></div>
     <nav class="sidenav d-flex">
         <div class="col-3 mx-0 px-0 side">
             
@@ -71,14 +71,19 @@
         
         $btnOpen.addEventListener('click', function(){
             $side.classList.add('sidenav-open');
+            document.querySelector('.fundo-preto').style.display = 'block';
+
         })
         
         $btnClose.addEventListener('click', function(){
             $side.classList.remove('sidenav-open');
+            document.querySelector('.fundo-preto').style.display = 'none';
         })
         
         $fechar.addEventListener('click', function(){
             $side.classList.remove('sidenav-open');
+            document.querySelector('.fundo-preto').style.display = 'none';
+
         })
 
     </script>
