@@ -90,3 +90,5 @@ body {
 #side-left li:hover{
     background-color: #222;
 }
+.slide{left: 50px;}
+.legenda_sld{color: black;}
