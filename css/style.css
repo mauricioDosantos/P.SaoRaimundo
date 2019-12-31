@@ -22,6 +22,7 @@ body {
 }
 .sidenav-open{
     transform: translateX(0);
+    z-index: 1;
 }
 
 .sidenav-content {
@@ -90,5 +91,5 @@ body {
 #side-left li:hover{
     background-color: #222;
 }
-.slide{left: 50px;}
+.slide{left: 50px;z-index: 0;}
 .legenda_sld{color: black;}
