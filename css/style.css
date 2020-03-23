@@ -1,95 +1,295 @@
-/*reset css dos navegadores*/
-* {
-    padding: 0;
-    margin: 0;
-    border: none;
-}
 body {
-    padding-top: 100px;
-}
-.navbar {
-    background-color: rgba(0, 0, 0, .1)
-}
-.sidenav{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-/*    background: rgba(0, 0, 0, .5);*/
-    width: 100%;
-    transform: translateX(-100%);
-    transition: transform 200ms ease;
-    
-}
-.sidenav-open{
-    transform: translateX(0);
-    z-index: 1;
+    color: #333;
+    font-family: "aktiv-grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
 }
 
-.sidenav-content {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-/*    background-color: rgba(0, 0, 0, .6);*/
-}
-
-.btnOpen{
-    font-size: .75rem;
-}
-
-.btnOpen:hover {
-    outline-color: aqua;
-    box-shadow: 2px 2px 2px 2px #ddd;
-}
-#topBar {
-    background-color: dimgrey;
-    color: white;
-    font-size: .90em;
-    font-family: sans-serif;
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
+    height: 100%;
     width: 100%;
-}
-
-.btnClose {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: left center;
-    text-indent: -99999px;
-    height: 16px;
-    width: 16px;
-    margin: 1em;
-    padding: 1em;
-    box-shadow: 1px 2px 0px rgba(0, 0, 0, .5);
-    border-radius: 3px;
-    background-image: url(img/cross.svg);
-}
-
-.btnClose:hover{
-    background-color: #ddd;
-}
-
-.fundo-preto {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, .3);
+    opacity: 0.5;
+    background: #000;
     display: none;
+    text-align: center;
+    z-index: 890;
 }
-#side-left {
-    position: absolute;
+.sidenav{
+    position: fixed;
+    top: 0;
+    left: -360px;
     bottom: 0;
-    top: 30vh;
+/*    height: 100%;*/
+    width: 360px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 991;
+}
+
+.mostrar-sidenav{
+    left: 0;
+}
+.mostrar-overlay{
+    display: block;
+}
+
+.sidenav .sidenav__bar {
+    height: 100%;
+    width: 300px;
+    background-color: #191818;
+    box-shadow: 3px 0 8px 0 rgba(0,0,0,0.3);
+    float: left;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 1.25rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 0;
+    pointer-events: auto;
+    z-index: 992;
+}
+.sidenav .sidenav__bar .sidenav-header {
+    color: #999;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.16px;
+    line-height: 1.25rem;
+    margin: 30px 0 22px;
+    text-align: center;
+    width: 100%;
+    clear: both;
+}
+.sidenav .sidenav__bar .sidenav-header .sidenav-header__image img {
+    width: 94px;
+    height: 68px;
+    margin: 0 auto 8px;
+    margin-bottom: 2rem;
+    background-color: #000;
+}
+img, picture {
+    margin: 0;
+    max-width: 100%;
+    display: block;
+}
+.sidenav .sidenav__bar .sidenav-header .sidenav-header__site-name {
+    display: block;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    line-height: 1.25rem;
+}
+.sidenav .sidenav__bar .sidenav-menu {
+    display: flex;
+    flex-direction: column;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+a:hover {
+    cursor: pointer;
+}
+.highlighted-link {
+    border-left: 6px solid #ffb200;
+/*    padding-left: 31px;*/
+}
+.sidenav .sidenav__bar .sidenav-menu .sidenav-menu__fixed-link {
+    border-top: 1px solid rgba(89,89,89,0.2);
+    color: #999;
+    letter-spacing: 0.3px;
+    line-height: 2rem;
+    margin: 0;
+    padding: 14px 0;
+    position: relative;
+}
+.sidenav .sidenav__bar .sidenav-share {
+    border-top: 1px solid rgba(89,89,89,0.2);
+    margin: 0;
+    padding: 14px 0;
+}
+.sidenav .sidenav__bar .sidenav-share .sidenav-share__menu {
+    display: flex;
+    justify-content: space-around;
+}
+ul, ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.sidenav .sidenav__bar .sidenav-share .sidenav-share__menu .sidenav-share__item {
+    
+}
+.sidenav .sidenav__bar .sidenav-share .sidenav-share__message {
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+    line-height: 0;
+    margin: 7px 0;
+    opacity: 0.6;
+    padding: 4rem 0;
+}
+.sidenav .sidenav__bar .sidenav__rights {
+    color: #797979;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1rem;
+    align-items: center;
+    display: block;
+    padding: 4rem 0;
+}
+.navbar-top {
+    background-color: #000;
+    display: block;
+    font-family: "aktiv-grotesk", sans-serif;
+    height: 61px;
+    margin-top: 0;
+    position: fixed;
+    text-transform: uppercase;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 20;
+    min-height: 61px !important;
+
+}
+.navbar-top .navbar__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 61px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 0 auto;
+}
+
+.navbar-top .navbar__wrapper .navbar__menu-button {
+    transition: opacity 250ms ease;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    text-decoration: none;
+    width: 100px;
+}
+.navbar-top .navbar__wrapper .navbar__menu-button .navbar__menu-text {
+    line-height: 25px;
+}
+.navbar-top .navbar__wrapper .navbar-links {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    float: right;
+    font-size: 1.0625rem;
+    letter-spacing: 1px;
+}
+.navbar-top .navbar__wrapper .navbar-links a {
+    transition: opacity 250ms ease;
+    color: #fff;
+    font-weight: 500;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.navbar-links__search-button {
+    height: 36px;
+    width: 36px;
+    background-size: 36px;
+    display: block;
+}
+
+.navbar-top .navbar-search {
+    height: 65px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 1px #666;
+    display: none;
+    position: absolute;
+    z-index: 798;
+}
+.navbar-top .navbar-search .navbar-search__form {
+    margin: 0 auto;
+    padding: 10px 2px;
+    width: 1300px;
+}
+.navbar-top .navbar-search .navbar-search__form .navbar-search__input {
+    border: 0;
+    border-color: transparent;
+    box-shadow: none;
+    color: #666;
+    display: block;
+    font-size: 1.25rem;
+    outline: none;
+    outline-style: none;
+    padding: 10px 0;
     width: 100%;
 }
 
-#side-left a {
-    color: white;
-    text-transform: uppercase;
+[type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='month'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'], [type='week'], input:not([type]), textarea {
+    width: 100%;
+    background: #fff;
+    border: none;
+    border: 1px solid #c8c8c8;
+    letter-spacing: 0px;
+    border-radius: 3px;
+    color: #5e6977;
+    display: block;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0 12px;
+    height: 50px;
+    -webkit-appearance: none;
 }
-#side-left li:hover{
-    background-color: #222;
+.posi_slide{
+    position: absolute;
+    top:90px;
 }
-.slide{left: 50px;z-index: 0;}
-.legenda_sld{color: black;}
+.img-1280-720{
+    width: 1280px; // a altura se adequa proporcionalmente
+    height: 720px;
+ }
+/*responsividade*/
+/*
+@media screen and (max-width: 992px){
+    .navbar-top .navbar__wrapper {
+        height: 61px;
+        width: 992px;;
+    }
+}
+*/
+
+/*
+@media screen and (max-width: 1190px){
+    .navbar-top .navbar__wrapper {
+        height: 61px;
+        width: 960px;
+    }
+    .navbar-top .navbar__wrapper .navbar__menu-button {
+    font-size: 1.0625rem;
+    }
+}
+
+@media screen and (max-width: 1360px){
+    .navbar-top .navbar__wrapper {
+        height: 61px;
+        width: 1130px;
+    }
+    .navbar-top .navbar__wrapper .navbar__menu-button {
+    font-size: 1.0625rem;
+    }
+}*/
